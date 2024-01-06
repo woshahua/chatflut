@@ -1,8 +1,11 @@
-class ChatModel {
-  final String name;
-  final String message;
-  final String time;
-  final String avatarUrl;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  ChatModel({required this.name, required this.message, required this.time, required this.avatarUrl});
+part 'chat_model.freezed.dart';
+
+@freezed
+class ChatModel with _$ChatModel {
+  const factory ChatModel({
+    required String message,
+    required bool isMe,
+  }) = _ChatModel;
 }

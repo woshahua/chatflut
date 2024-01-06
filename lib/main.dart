@@ -16,40 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Home',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const ChatTextField());
-  }
-}
-
-class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key}) : super(key: key);
-
-  @override
-  State<ChatPage> createState() => _ChatPageState();
-}
-
-class _ChatPageState extends State<ChatPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Chat'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: ListView(
-            children: const [
-              InBubble(message: 'Hello'),
-              OutBubble(message: 'Hi there'),
-              OutBubble(message: 'How it going?'),
-              InBubble(message: 'Everything is OK'),
-              OutBubble(message: 'Goodbye'),
-              InBubble(message: 'See you soon')
-            ],
-          ),
-        ));
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
+                .copyWith(background: Colors.white)),
+        home: Scaffold(
+            appBar: AppBar(title: const Text("chat")),
+            body: const SafeArea(child: ChatTextField())));
   }
 }
 
